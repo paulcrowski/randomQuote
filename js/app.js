@@ -27,12 +27,14 @@ function showQuote(quoteData) {
     name.html(title);
     // show box with content with animation
     colorBackground();
-    $('.box').fadeIn('slow');
+    //$('.box').fadeIn('slow');
     console.log(content);
     console.log(title);
+    tweeterData (content, name);
 }
 
 function colorBackground () {
+    // generate random background color for quote
     var colors = ["#9B59B6","#77B1A9","#73A857", "#2C3E50", "#FB6964"];
     var randomColor = randomIntFromInterval(0,colors.length-1);
     var body =$('body');
@@ -45,9 +47,16 @@ function randomIntFromInterval(min,max) {
 }
 
 function buttonRandom () {
+    // button for choose random quote
     $('.buttonRandom').click(function(){
         console.log('click');
         $('body').css("display","none");
         getQuote();
     })
+}
+
+function tweeterData (content, name) {
+    var tweetContent = $(content).text();
+    var tweetName = $(name).text();
+    $(".twitter-share-button").attr("href", "https://twitter.com/intent/tweet?text="+"nice quote: "+tweetContent+"Autor: "+tweetName);
 }
