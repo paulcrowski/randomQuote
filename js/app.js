@@ -4,6 +4,7 @@
 console.log('test');
 
 $(document).ready(function() {
+    $.ajaxSetup({ cache: false });
     getQuote();
     buttonRandom();
 });
@@ -35,7 +36,7 @@ function showQuote(quoteData) {
 
 function colorBackground () {
     // generate random background color for quote
-    var colors = ["#9B59B6","#77B1A9","#73A857", "#2C3E50", "#FB6964"];
+    var colors = ["#9B59B6","#77B1A9","#73A857", "#2C3E50", "#FB6964", "black", "white"];
     var randomColor = randomIntFromInterval(0,colors.length-1);
     var body =$('body');
     console.log(colors[randomColor]);
